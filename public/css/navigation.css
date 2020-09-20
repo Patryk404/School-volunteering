@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab");
+
+ul li {
+ float: left;
+ list-style: none;
+ margin-right: 1em;
+ font-size: 25px;
+ padding: 12px; 
+}
+ 
+li a {
+ color: #544738;
+ text-decoration: none;
+ float: left;
+}
+ 
+li a:hover {
+ color: #7eb9be;
+}
+
+li a.active {
+    color: #7eb9be;
+}
