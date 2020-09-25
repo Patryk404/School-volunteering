@@ -1,0 +1,12 @@
+<%- include('includes/head'); -%>
+<body>
+    <%- include('includes/navigation')-%>
+    <form class="login-form" action="/admin/login" method="POST">
+        <div class="form-control">
+            <label for="password">Tajne hasło</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <button class="btn" type="submit">LOGUJ!</button>
+    </form>
+</body>
+</html>

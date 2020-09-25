@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab");
 
+
+ul {
+    position: fixed;
+}
+
 ul li {
  float: left;
  list-style: none;
