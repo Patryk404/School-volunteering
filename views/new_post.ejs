@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School</title>
+    <link rel="stylesheet" href="../css/navigation.css"><!-- because admin is cover lol -->
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/button.css">
+</head>
+<body>
+    <%- include('includes/navigation')-%>
+    <%if(isLoggedIn){%>
+        <h1>Dodaj Nowego Posta</h1>
+        <form class="new_post" action="/admin/add_post" method="POST">
+            <h2>Temat</h2>
+            <input type="text" name="topic" id="topic"/>
+            <h2>Opis</h2>
+            <textarea name="description" id="description">
+            </textarea>
+            <h2>Autor</h2>
+            <input type="text" name="author" id="author"/>
+            <button class="big-button" type="submit">Dodaj Posta!</button>
+        </form>
+    <%} else {%>
+        <h1>Nie jesteś zalogowany</h1>
+    <%}%>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School</title>
+    <link rel="stylesheet" href="../css/navigation.css"><!-- because admin is cover lol -->
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/button.css">
+</head>
+<body>
+    <%- include('includes/navigation')-%>
+    <h1><%= post.topic%></h1>
+    <div class="post_box">
+    <%for (part of post.description){%>
+        <p class="post_description"><%=part%></p>
+    <%}%>
+    <p class="post_author"><%= post.createdAt.toLocaleDateString()%> <%= post.createdAt.getHours()%>:<%= post.createdAt.getMinutes()%> <%= post.author%></p>
+    </div>
+    <a href="/admin">
+        <img src="../images/smile.png" class="icon"/>
+    </a>
+</body>
+</html>

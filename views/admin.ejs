@@ -1,12 +1,12 @@
 <%- include('includes/head'); -%>
 <body>
     <%- include('includes/navigation')-%>
-    <form class="login-form" action="/admin/login" method="POST">
-        <div class="form-control">
-            <label for="password">Tajne hasło</label>
-            <input type="password" name="password" id="password">
-        </div>
-        <button class="big-button" type="submit">LOGUJ!</button>
-    </form>
+        <form class="login-form" action="/admin/login" method="POST" style="padding-top: 150px">
+            <div class="form-control">
+                <h1 for="password">Tajne hasło</h1>
+                <input type="password" name="password" id="password" placeholder="Wpisz tajne hasło">
+            </div>
+            <button class="big-button" type="submit" style="font-size: 20px;">LOGUJ!</button>
+        </form>
 </body>
 </html>

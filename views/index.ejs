@@ -1,10 +1,31 @@
 <%- include('includes/head'); -%>
 <body>
     <%- include('includes/navigation')-%>
+    <% if(isLoggedIn){%>
+        <form class="logout-form" action="/admin/logout" method="POST" style="padding-top: 150px">
+            <button class="big-button" type="submit">WYLOGUJ</button>
+        </form>    
+        <form class="login-form">
+            <h1>Panel administracyjny</h1>
+            <a href="/admin/add_post">
+            <button class="big-button" type="button">Dodaj Post</button>
+            </a>
+        </form>
+    <%}%>       
     <h1>Aktualności</h1>
-    <div class="post">
-        <p>post</p>  
-    </div>
+    <%if(posts.length>0){%>
+        <% for (let post of posts) {%>
+        <div class="post">
+            <h2><%=post.topic%></h2>  
+            <a href = "/post/<%= post.id%>">
+            <button class="big-button">Więcej</button>
+            </a>
+            <p><%= post.createdAt.toLocaleDateString()%> <%= post.createdAt.getHours()%>:<%= post.createdAt.getMinutes()%></p>
+        </div>
+        <%}%>
+    <%}else {%>
+        <h2>Nie ma postów</h2>
+    <%}%>
     <a href="/admin">
         <img src="images/smile.png" class="icon"/>
     </a>
