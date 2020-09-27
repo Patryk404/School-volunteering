@@ -25,6 +25,7 @@
      width: 50%;
      border-radius: 10px;
      background-color: #f4f1e5;
+     position: relative;
  }
 
  .icon { 
@@ -72,3 +73,16 @@
      text-align: right;
      font-weight: bold;
  }
+
+ .img_delete {
+     position: absolute;
+     top: 0px;
+     right: 0px;
+     background-color: unset;
+}
+
+.no_post_label {
+    text-align: center;
+    margin-top: 100px;
+}
+

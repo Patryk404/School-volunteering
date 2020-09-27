@@ -8,23 +8,47 @@
         <form class="login-form">
             <h1>Panel administracyjny</h1>
             <a href="/admin/add_post">
-            <button class="big-button" type="button">Dodaj Post</button>
+                <button class="big-button" type="button">Dodaj Post</button>
             </a>
         </form>
-    <%}%>       
-    <h1>Aktualności</h1>
-    <%if(posts.length>0){%>
-        <% for (let post of posts) {%>
-        <div class="post">
-            <h2><%=post.topic%></h2>  
-            <a href = "/post/<%= post.id%>">
-            <button class="big-button">Więcej</button>
-            </a>
-            <p><%= post.createdAt.toLocaleDateString()%> <%= post.createdAt.getHours()%>:<%= post.createdAt.getMinutes()%></p>
-        </div>
+        <h1>Aktualności</h1>
+        <%if(posts.length>0){%>
+            <% for (let post of posts) {%>
+            <div class="post">
+                <form method="POST" action="/admin/delete/<%= post.id%>">
+                    <button type="submit" class="img_delete">
+                        <img src="images/cancel.png" style="width: 30px; height: 30px;"/>
+                    </button>
+                </form>
+                <h2><%=post.topic%></h2>  
+                <a href = "/post/<%= post.id%>">
+                <button class="big-button">Więcej</button>
+                </a>
+                <br/>
+                <a href="/admin/edit/post/<%= post.id%>">
+                <button class="big-button" type="button">Edytuj Post</button>
+                </a>
+                <p><%= post.updatedAt.toLocaleDateString()%> <%= post.updatedAt.getHours()%>:<%= (post.updatedAt.getMinutes()<10?'0':'') + post.updatedAt.getMinutes()%></p>
+            </div>
+            <%}%>
+        <%} else {%>
+            <h2 class="no_post_label">Nie ma postów 😔</h2>
         <%}%>
-    <%}else {%>
-        <h2>Nie ma postów</h2>
+    <%} else {%>       
+        <h1>Aktualności</h1>
+        <%if(posts.length>0){%>
+            <% for (let post of posts) {%>
+            <div class="post">
+                <h2><%=post.topic%></h2>  
+                <a href = "/post/<%= post.id%>">
+                <button class="big-button">Więcej</button>
+                </a>
+                <p><%= post.updatedAt.toLocaleDateString()%> <%= post.updatedAt.getHours()%>:<%= (post.updatedAt.getMinutes()<10?'0':'') + post.updatedAt.getMinutes()%></p>
+            </div>
+            <%}%>
+        <%}else {%>
+            <h2 style="text-align: center; margin-top: 100px;">Nie ma postów 😔</h2>
+        <%}%>
     <%}%>
     <a href="/admin">
         <img src="images/smile.png" class="icon"/>

@@ -61,3 +61,35 @@ module.exports.logoutAdmin = async(req,res,next)=>{
         res.redirect('/');
     })
 };
+
+module.exports.deletePost = async(req,res,next)=>{
+    const id = req.params.id
+    const post = await Post.findOne({where: {id: id}});
+    try {
+    await post.destroy();
+    }
+    catch(err){
+        console.log(err);
+    }
+    res.redirect('/');
+};
+
+module.exports.editPost = async(req,res,next)=>{
+    const id = req.params.id;
+    const post = await Post.findOne({where: {id: id}});
+    post.topic = req.body.topic;
+    post.description = req.body.description;
+    post.author = req.body.author;
+    await post.save();
+    res.redirect('/');
+}
+
+module.exports.getEditPost = async(req,res,next)=>{
+    const id = req.params.id
+    const post = await Post.findOne({where: {id:id}});
+    res.render('edit_post',{
+        post: post,
+        path: '/',
+        isLoggedIn: req.session.isLoggedIn
+    });
+}

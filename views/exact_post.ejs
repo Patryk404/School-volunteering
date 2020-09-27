@@ -16,7 +16,7 @@
     <%for (part of post.description){%>
         <p class="post_description"><%=part%></p>
     <%}%>
-    <p class="post_author"><%= post.createdAt.toLocaleDateString()%> <%= post.createdAt.getHours()%>:<%= post.createdAt.getMinutes()%> <%= post.author%></p>
+    <p class="post_author"><%= post.updatedAt.toLocaleDateString()%> <%= post.updatedAt.getHours()%>:<%= (post.updatedAt.getMinutes()<10?'0':'') + post.updatedAt.getMinutes()%> <%= post.author%></p>
     </div>
     <a href="/admin">
         <img src="../images/smile.png" class="icon"/>
