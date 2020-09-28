@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School</title>
+    <title>Wspólnota Pokoleń</title>
     <link rel="stylesheet" href="../css/navigation.css"><!-- because admin is cover lol -->
     <link rel="stylesheet" href="../css/all.css">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/button.css">
+    <link rel="icon" href="../images/old-man.png" type="image/x-icon"/>
 </head>
 <body>
     <%- include('includes/navigation')-%>
@@ -16,7 +17,7 @@
     <%for (part of post.description){%>
         <p class="post_description"><%=part%></p>
     <%}%>
-    <p class="post_author"><%= post.updatedAt.toLocaleDateString()%> <%= post.updatedAt.getHours()%>:<%= (post.updatedAt.getMinutes()<10?'0':'') + post.updatedAt.getMinutes()%> <%= post.author%></p>
+    <p class="post_author"><%= post.updatedAt.toLocaleDateString()%> <%= post.updatedAt.getHours()%>:<%= (post.updatedAt.getMinutes()<10?'0':'') + post.updatedAt.getMinutes() %> <%= post.author%></p>
     </div>
     <a href="/admin">
         <img src="../images/smile.png" class="icon"/>

@@ -9,8 +9,11 @@ const adminRoute = require('./routes/admin');
 const session = require('express-session');
 const sequelize = require('./util/database');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const helmet = require('helmet');
 
 app.set('view engine','ejs');
+
+app.use(helmet());
 
 app.use(session({
     secret: process.env.SECRET_SESSION,
@@ -48,5 +51,5 @@ app.use('/admin',adminRoute);
 
 sequelize.sync()
 .then(()=>{
-    app.listen(3000);
+    app.listen(process.env.PORT || 3000);
 })
